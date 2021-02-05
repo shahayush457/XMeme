@@ -1,50 +1,64 @@
 const Meme = require("../models/memes");
 
-exports.index = function(req, res) {
-  Meme.find({}, { __v: 0 })
-    .sort({ date: -1 })
-    .then(Memes => {
-      res.send(Memes.slice(0, 100));
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({ msg: e.message });
-    });
-};
-
-exports.getLatest = function(req, res) {
-  Meme.find({}, { __v: 0 })
-    .sort({ date: -1 })
-    .then(Memes => {
-      res.send(Memes.slice(0, 100));
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({ msg: e.message });
-    });
-};
-
-exports.getId = async function(req, res) {
+exports.index = async (req, res) => {
   try {
-    const meme = await Meme.findById(req.params.id, { __v: 0 });
-    if (!meme) throw Error("No meme found");
-    res.send(meme);
-  } catch (e) {
-    res.sendStatus(404);
+    // Fetch all the Memes from the Database and store as array of objecs
+    const Memes = await Meme.find({}, { __v: 0 });
+
+    // Sort the Memes(latest first) and send the first 100 Memes
+    res.send(Memes.sort({ date: -1 }).slice(0, 100));
+  } catch (err) {
+    // Internal Server Error
+    res.sendStatus(500);
   }
 };
 
-exports.create = function(req, res) {
+exports.getLatest = async (req, res) => {
+  try {
+    // Fetch all the Memes from the Database and store as array of objecs
+    const Memes = await Meme.find({}, { __v: 0 });
+
+    // Sort the Memes(latest first) and send the first 100 Memes
+    res.send(Memes.sort({ date: -1 }).slice(0, 100));
+  } catch (err) {
+    // Internal Server Error
+    res.sendStatus(500);
+  }
+};
+
+exports.getId = async (req, res) => {
+  try {
+    // Query the Database to find Meme info for the given id
+    const meme = await Meme.findById(req.params.id, { __v: 0 });
+
+    res.send(meme);
+  } catch (e) {
+    // Meme with specified id not found in the Database
+    res.status(404).send("Meme not found");
+  }
+};
+
+exports.create = async (req, res) => {
+  //  If name/url/caption field is empty send error (Not Acceptable)
+  if (!req.query.name || !req.query.url || !req.query.caption) {
+    res.sendStatus(406);
+    return;
+  }
+
+  // Create a new record of model Meme for the requested query parameters
   let newMeme = new Meme(req.query);
-  newMeme
-    .save()
-    .then(meme => {
-      console.log("Meme info saved successfully...");
-      console.log(JSON.stringify(meme));
-      res.send(JSON.stringify({ id: meme.id }));
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(400).json({ msg: e.message });
-    });
+
+  try {
+    // Save Meme info in Database
+    const meme = await newMeme.save();
+
+    console.log("Meme info saved successfully...");
+    console.log(JSON.stringify(meme));
+
+    // Send the id of the saved Meme as response
+    res.send(JSON.stringify({ id: meme.id }));
+  } catch (err) {
+    // Internal Server Error
+    res.sendStatus(500);
+  }
 };

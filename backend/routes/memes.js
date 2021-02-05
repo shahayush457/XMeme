@@ -5,7 +5,7 @@ const router = express.Router();
 
 /**
  * @route     GET /
- * @desc      GET all the memes
+ * @desc      GET the latest 100 memes(landing page)
  * @access    Public
  */
 
@@ -21,16 +21,6 @@ router.get("/", (req, res) => {
 
 router.get("/memes", (req, res) => {
   meme.getLatest(req, res);
-
-  /*try {
-      const memes = [];
-      res.render("index", {
-        memes
-      });
-    } catch (error) {
-      console.log(error);
-      res.status(400).send("Error while getting memes");
-    }*/
 });
 
 /**
@@ -51,16 +41,6 @@ router.get("/memes/:id", (req, res) => {
 
 router.post("/memes", (req, res) => {
   meme.create(req, res);
-
-  // try {
-  //   //console.log(memes);
-  //   // res.render("index", {
-  //   //   memes
-  //   // });
-  // } catch (error) {
-  //   console.log(error);
-  //   res.status(400).send("Error while getting memes");
-  // }
 });
 
 module.exports = router;
