@@ -1,14 +1,14 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "XMeme Backend",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon -e js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ayush Shah",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.3"
