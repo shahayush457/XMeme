@@ -6,7 +6,10 @@ const memes = require("./routes/memes");
 
 const app = express();
 dotenv.config();
-//app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.raw());
 
 // Use Routes
 app.use("/", memes);
