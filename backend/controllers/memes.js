@@ -40,13 +40,13 @@ exports.getId = async (req, res) => {
 
 exports.create = async (req, res) => {
   //  If name/url/caption field is empty send error (Not Acceptable)
-  if (!req.query.name || !req.query.url || !req.query.caption) {
+  if (!req.body.name || !req.body.url || !req.body.caption) {
     res.sendStatus(406);
     return;
   }
 
   // Create a new record of model Meme for the requested query parameters
-  let newMeme = new Meme(req.query);
+  let newMeme = new Meme(req.body);
 
   try {
     // Save Meme info in Database
