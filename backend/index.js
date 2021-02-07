@@ -12,10 +12,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.raw());
 
-app.use(cors);
+app.use(cors());
 
 // Use Routes
-app.use("/", memes);
+app.use("/memes", memes);
+
+//Use and serve static assets
+app.use(express.static(__dirname + "/view/"));
+app.get("/.*/", (req, res) => res.sendFile(__dirname + "/view/index.html"));
 
 const PORT = process.env.PORT || 8081;
 

@@ -4,22 +4,12 @@ const meme = require("../controllers/memes");
 const router = express.Router();
 
 /**
- * @route     GET /
- * @desc      GET the latest 100 memes(landing page)
- * @access    Public
- */
-
-router.get("/", (req, res) => {
-  meme.index(req, res);
-});
-
-/**
  * @route     GET /memes
  * @desc      GET the latest 100 memes
  * @access    Public
  */
 
-router.get("/memes", (req, res) => {
+router.get("/", (req, res) => {
   meme.getLatest(req, res);
 });
 
@@ -29,7 +19,7 @@ router.get("/memes", (req, res) => {
  * @access  Public
  */
 
-router.get("/memes/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   meme.getId(req, res);
 });
 
@@ -39,7 +29,7 @@ router.get("/memes/:id", (req, res) => {
  * @access    Public
  */
 
-router.post("/memes", (req, res) => {
+router.post("/", (req, res) => {
   meme.create(req, res);
 });
 

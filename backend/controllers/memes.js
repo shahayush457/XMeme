@@ -1,27 +1,19 @@
 const Meme = require("../models/memes");
 
-exports.index = async (req, res) => {
-  try {
-    // Fetch all the Memes from the Database and store as array of objecs
-    const Memes = await Meme.find({}, { __v: 0 });
-
-    // Sort the Memes(latest first) and send the first 100 Memes
-    res.send(Memes.sort({ date: -1 }).slice(0, 100));
-  } catch (err) {
-    // Internal Server Error
-    res.sendStatus(500);
-  }
-};
-
 exports.getLatest = async (req, res) => {
   try {
     // Fetch all the Memes from the Database and store as array of objecs
     const Memes = await Meme.find({}, { __v: 0 });
-
     // Sort the Memes(latest first) and send the first 100 Memes
-    res.send(Memes.sort({ date: -1 }).slice(0, 100));
+    res.send(
+      Memes.sort((a, b) => {
+        if (a.date < b.date) return 1;
+        else return -1;
+      }).slice(0, 100)
+    );
   } catch (err) {
     // Internal Server Error
+    console.log(err);
     res.sendStatus(500);
   }
 };
