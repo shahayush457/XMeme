@@ -1,0 +1,167 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Crio winter of doing stage 2B submission",
+    "version": "1.0.0",
+    "title": "X Meme API",
+    "contact": {
+      "email": "shahayush457@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "virtserver.swaggerhub.com",
+  "basePath": "/shahayush457/Xmeme/1.0.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/memes": {
+      "get": {
+        "tags": [
+          "memes"
+        ],
+        "summary": "fetches memes",
+        "description": "Get Latest 100 Memes",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "fetch latest 100 memes",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Meme"
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "memes"
+        ],
+        "summary": "adds a meme",
+        "description": "Posts a meme",
+        "operationId": "addMeme",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "meme",
+            "description": "Meme to post",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Meme"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Meme posted successfully.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "406": {
+            "description": "Not acceptable"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/memes/{id}": {
+      "get": {
+        "tags": [
+          "memes"
+        ],
+        "description": "Get memes by id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of meme you want to get",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successfull",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Meme not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Meme": {
+      "type": "object",
+      "required": [
+        "caption",
+        "name",
+        "url"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "format": "uuid",
+          "example": "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "name": {
+          "type": "string",
+          "example": "Ayush Shah"
+        },
+        "caption": {
+          "type": "string",
+          "example": "This is a meme"
+        },
+        "url": {
+          "type": "string",
+          "example": "https://abc.jpeg"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2016-08-29T09:12:33.001+0000"
+        }
+      }
+    },
+    "res": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "description": "Response object for id specific get request."
+    }
+  }
+}

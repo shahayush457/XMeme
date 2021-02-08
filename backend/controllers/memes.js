@@ -22,7 +22,6 @@ exports.getId = async (req, res) => {
   try {
     // Query the Database to find Meme info for the given id
     const meme = await Meme.findById(req.params.id, { __v: 0 });
-
     res.send(meme);
   } catch (e) {
     // Meme with specified id not found in the Database
@@ -46,7 +45,6 @@ exports.create = async (req, res) => {
 
     console.log("Meme info saved successfully...");
     console.log(JSON.stringify(meme));
-
     // Send the id of the saved Meme as response
     res.send(JSON.stringify({ id: meme.id }));
   } catch (err) {
