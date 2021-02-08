@@ -1,11 +1,25 @@
 <template>
-  <div style="margin-left:10px">
-    <div>
-      <div class="top-bar">
-        <h1 style="display:inline; font-size:40px; font-weight:700;">X Meme</h1>
+  <div style="margin-left:6px">
+    <div class="top-bar">
+      <h1 class="xmeme">
+        X Meme
+      </h1>
+      <div class="buttons">
+        <button
+          class="linkedin"
+          onclick="window.open('https://www.linkedin.com/in/ayushshah1234/')"
+        >
+          @ayushshah
+        </button>
+        <button
+          class="swagger"
+          onclick="window.open('http://localhost:8080/swagger-ui/')"
+        >
+          Swagger
+        </button>
       </div>
-      <p class="tagline">Keep 'em quirky memes coming!</p>
     </div>
+    <p class="tagline">Keep 'em quirky memes coming!</p>
     <div class="container">
       <div>
         <center>
@@ -84,12 +98,10 @@
       <div class="col-40" v-for="post in posts" v-bind:key="post._id">
         <div>
           <h3 align="left">{{ post.name }}</h3>
-          <p align="left">{{ post.caption }}</p>
+          <p class="caption" align="left">{{ post.caption }}</p>
         </div>
         <img :src="post.url" class="image" />
       </div>
-    </div>
-    <div class="footer">
     </div>
   </div>
 </template>
@@ -161,8 +173,36 @@ textarea {
 input[type="submit"] {
   background-color: #0000ff;
   color: white;
-  font-size: 15px;
+  font-size: 17px;
   padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 5px;
+  cursor: pointer;
+  float: right;
+}
+
+.swagger {
+  background-color: #07a515;
+  color: white;
+  font-size: 17px;
+  padding: 12px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 5px;
+  cursor: pointer;
+  float: right;
+}
+
+.linkedin {
+  background-color: #0000ff;
+  color: white;
+  font-size: 17px;
+  padding: 12px 20px;
+  margin-right: 10px;
   border: none;
   border-radius: 4px;
   -moz-border-radius: 7px;
@@ -175,6 +215,14 @@ input[type="submit"] {
   font-size: 1.25rem;
   display: block;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #888;
+}
+
+.caption {
+  padding-bottom: 5px;
+  font-size: 1.2rem;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
   color: #888;
 }
 
@@ -200,8 +248,8 @@ input[type="submit"] {
 
 .image {
   border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -moz-box-shadow: -5px -5px 5px #888;
   -webkit-box-shadow: -5px -5px 5px rgb(170, 170, 170);
   box-shadow: -5px -7px 5px #888;
@@ -268,6 +316,12 @@ label {
   clear: both;
 }
 
+.xmeme {
+  display: inline;
+  font-size: 35px;
+  font-weight: 700;
+}
+
 /* Responsive layout - when the screen is less than 600px wide, make the two columns 
   stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
@@ -278,6 +332,29 @@ label {
   .col-40 input[type="submit"] {
     width: 100%;
     margin-top: 0;
+  }
+  .xmeme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tagline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .linkedin {
+    float: none;
+    display: inline;
+    margin-right: 4px;
+  }
+  .swagger {
+    float: left;
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>
