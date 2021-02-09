@@ -63,7 +63,7 @@
             "in": "body",
             "name": "meme",
             "description": "Meme to post",
-            "required": false,
+            "required": true,
             "schema": {
               "$ref": "#/definitions/Meme"
             }
@@ -78,6 +78,9 @@
           },
           "406": {
             "description": "Not acceptable"
+          },
+          "409": {
+            "description": "Error! same meme not allowed."
           },
           "500": {
             "description": "Internal server error"
@@ -129,7 +132,7 @@
         "url"
       ],
       "properties": {
-        "_id": {
+        "id": {
           "type": "string",
           "format": "uuid",
           "example": "d290f1ee-6c54-4b01-90e6-d701748f0851"
@@ -156,7 +159,7 @@
     "res": {
       "type": "object",
       "properties": {
-        "_id": {
+        "id": {
           "type": "string",
           "format": "uuid"
         }
