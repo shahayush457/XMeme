@@ -1,22 +1,16 @@
 <template>
   <div style="margin-left:6px">
     <div class="top-bar">
-      <h1 class="xmeme">
-        X Meme
-      </h1>
+      <h1 class="xmeme">X Meme</h1>
       <div class="buttons">
         <button
           class="linkedin"
           onclick="window.open('https://www.linkedin.com/in/ayushshah1234/')"
-        >
-          @ayushshah
-        </button>
+        >@ayushshah</button>
         <button
           class="swagger"
-          onclick="window.open('http://www.xmeme.coolayush.ninja:8080/swagger-ui/')"
-        >
-          Swagger
-        </button>
+          onclick="window.open('https://www.xmeme.coolayush.ninja/swagger-ui/')"
+        >Swagger</button>
       </div>
     </div>
     <p class="tagline">Keep 'em quirky memes coming!</p>
@@ -73,11 +67,7 @@
           </div>
         </div>
         <div class="row">
-          <input
-            type="submit"
-            v-on:click.prevent="createMeme"
-            value="Post Meme"
-          />
+          <input type="submit" v-on:click.prevent="createMeme" value="Post Meme" />
         </div>
       </form>
       <!--<div class="preview">
@@ -89,7 +79,7 @@
           <p align="center">{{ caption }}</p>
           <img :src="url" class="image-preview" alt="" />
         </div>
-      </div> -->
+      </div>-->
       <h3 v-if="error" align="center">
         <span class="error-text">{{ error }}</span>
       </h3>
