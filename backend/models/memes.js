@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const Meme = new Schema({
+let Meme = new Schema({
   name: {
     type: String,
     required: true,
@@ -21,6 +21,16 @@ const Meme = new Schema({
     type: Date,
     default: Date.now
   }
+});
+
+Meme.method("transform", function() {
+  let obj = this.toObject();
+
+  //Rename fields
+  obj["id"] = obj._id;
+  delete obj._id;
+
+  return obj;
 });
 
 const memes = mongoose.model("Memes", Meme);
