@@ -13,7 +13,7 @@
         </button>
         <button
           class="swagger"
-          onclick="window.open('http://localhost:8080/swagger-ui/')"
+          onclick="window.open('http://www.xmeme.coolayush.ninja:8080/swagger-ui/')"
         >
           Swagger
         </button>
