@@ -12,23 +12,16 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "host": "virtserver.swaggerhub.com",
-  "basePath": "/shahayush457/Xmeme/1.0.0",
-  "schemes": [
-    "https",
-    "http"
-  ],
+  "host": "xmeme.coolayush.ninja",
+  "basePath": "/swagger-ui",
+  "schemes": ["https"],
   "paths": {
     "/memes": {
       "get": {
-        "tags": [
-          "memes"
-        ],
+        "tags": ["memes"],
         "summary": "fetches memes",
         "description": "Get Latest 100 Memes",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [],
         "responses": {
           "200": {
@@ -46,18 +39,12 @@
         }
       },
       "post": {
-        "tags": [
-          "memes"
-        ],
+        "tags": ["memes"],
         "summary": "adds a meme",
         "description": "Posts a meme",
         "operationId": "addMeme",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
         "parameters": [
           {
             "in": "body",
@@ -90,13 +77,9 @@
     },
     "/memes/{id}": {
       "get": {
-        "tags": [
-          "memes"
-        ],
+        "tags": ["memes"],
         "description": "Get memes by id",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -126,11 +109,7 @@
   "definitions": {
     "Meme": {
       "type": "object",
-      "required": [
-        "caption",
-        "name",
-        "url"
-      ],
+      "required": ["caption", "name", "url"],
       "properties": {
         "id": {
           "type": "string",

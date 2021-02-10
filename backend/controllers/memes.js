@@ -63,7 +63,7 @@ exports.create = async (req, res) => {
     if (err.message === "Not Acceptable") res.sendStatus(406);
     // If meme with {name, caption, url} posted by user already available in database
     if (err.message === "Error! same meme not allowed.")
-      res.status(409).send("err.message");
+      res.status(409).send(err.message);
     // Internal Server Error
     res.sendStatus(500);
   }
