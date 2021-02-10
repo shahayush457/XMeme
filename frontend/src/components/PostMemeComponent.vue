@@ -115,7 +115,6 @@ export default {
     try {
       //{{ `${post.date.getDate()}/${post.date.getMonth()}/${post.date.getFullYear()}` }}
       this.posts = await PostService.getMemes();
-      console.log(this.posts);
     } catch (err) {
       this.error = err.message;
     }
@@ -131,13 +130,14 @@ export default {
           caption: this.caption.substr(0, Math.min(this.caption.length, 42)),
           url: this.url
         });
+        this.posts = await PostService.getMemes();
+        this.name = "";
+        this.caption = "";
+        this.url = "";
+        this.error = "";
       } catch (err) {
         this.error = err.message;
       }
-      this.posts = await PostService.getMemes();
-      this.name = "";
-      this.caption = "";
-      this.url = "";
     }
   }
 };
