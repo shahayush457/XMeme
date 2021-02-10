@@ -1,5 +1,5 @@
 const express = require("express");
-const meme = require("../controllers/memes");
+const memes = require("../controllers/memes");
 
 const router = express.Router();
 
@@ -10,17 +10,7 @@ const router = express.Router();
  */
 
 router.get("/", (req, res) => {
-  meme.getLatest(req, res);
-});
-
-/**
- * @route   GET /memes/:id
- * @desc    GET meme by id
- * @access  Public
- */
-
-router.get("/:id", (req, res) => {
-  meme.getId(req, res);
+  memes.getLatest(req, res);
 });
 
 /**
@@ -30,7 +20,27 @@ router.get("/:id", (req, res) => {
  */
 
 router.post("/", (req, res) => {
-  meme.create(req, res);
+  memes.create(req, res);
+});
+
+/**
+ * @route   GET /memes/:id
+ * @desc    GET meme by id
+ * @access  Public
+ */
+
+router.get("/:id", (req, res) => {
+  memes.getById(req, res);
+});
+
+/**
+ * @route   PATCH /memes/:id
+ * @desc    Update meme caption or url or both but not the name
+ * @access  Public
+ */
+
+router.patch("/:id", (req, res) => {
+  memes.updateById(req, res);
 });
 
 module.exports = router;
