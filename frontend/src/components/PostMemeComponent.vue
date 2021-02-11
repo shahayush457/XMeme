@@ -90,7 +90,7 @@
           <h3 align="left">{{ post.name }}</h3>
           <p class="caption" align="left">{{ post.caption }}</p>
         </div>
-        <img :src="post.url" class="image" />
+        <img :src="post.url" @error="post.url=alt_image" class="image" />
       </div>
     </div>
   </div>
@@ -106,6 +106,8 @@ export default {
       posts: [],
       max: 45,
       error: "",
+      alt_image:
+        "https://www.searchinfluence.com/wp-content/uploads/2015/03/seomeme-300x300.jpg",
       name: "",
       caption: "",
       url: ""
@@ -174,7 +176,7 @@ input[type="submit"] {
 }
 
 .swagger {
-  background-color: #07a515;
+  background-color: #03aa11;
   color: white;
   font-size: 17px;
   padding: 12px 20px;
