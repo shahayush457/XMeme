@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sleep 170
+sleep 120

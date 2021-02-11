@@ -10,5 +10,3 @@ sudo apt install -y nodejs
 sudo apt install -y npm
 
 # Any configuration related commands
-
-#sudo ufw allow 8081

@@ -1,0 +1,5 @@
+/backend/node_modules
+/backend/.gitignore
+/backend/view
+/backend/.env.template
+/backend/.env
