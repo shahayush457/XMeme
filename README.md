@@ -1,6 +1,6 @@
-# XMeme
-The application is live here - [XMeme](https://xmeme.coolayush.ninja) \
-The documentation for backend apis can be accessed here - [Docs](https://xmeme.coolayush.ninja/swagger-ui)
+# XMeme :wave:	
+*The application is live here - [XMeme](https://xmeme.coolayush.ninja)* \
+*The documentation for backend apis can be accessed here - [Docs](https://xmeme.coolayush.ninja/swagger-ui)*
 > XMeme is a Meme Stream Page where users can post memes by providing their name, a caption for the meme and the URL for the meme image as input. The page  retrieves and displays the latest 100 posted Memes (names + meme images + caption).
 
 ## Installation
@@ -28,10 +28,10 @@ $ cd shahayush457-me_buildout_xmeme/frontend
 $ npm run build
 ```
 Now just deploy the backend folder.
-### Docker
-The XMeme is completely dockerised.
+### Docker :whale2:	
+The XMeme is completely dockerised. \
 By default, the Docker will expose port 8080 - for swagger-ui server, 8081 - for all api requests and 27017 - for mongodb. \
-Note - You need [Docker](https://docs.docker.com/engine/install/) installed on your system.
+**Note** - You need [Docker](https://docs.docker.com/engine/install/) installed on your system.
 ```sh
 $ cd shahayush457-me_buildout_xmeme
 $ docker build -t xmeme .
@@ -49,8 +49,8 @@ Now you can access you application at http://server-address:8081/
 ### Todos
 
  - Add auth
- - Write Tests for frontend
  - Add edit button in the frontend for update api in the backend
+ - Write Tests for frontend
 
 License
 ----
