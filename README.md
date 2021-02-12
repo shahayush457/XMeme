@@ -1,7 +1,11 @@
 # XMeme :wave:	
-**The application is live here - [XMeme](https://xmeme.coolayush.ninja)** \
+**The application is live here - [XMeme](https://xmeme.coolayush.ninja)** 
+
 **The documentation for backend apis can be accessed here - [Docs](https://xmeme.coolayush.ninja/swagger-ui)**
-> XMeme is a Meme Stream Page where users can post memes by providing their name, a caption for the meme and the URL for the meme image as input. The page  retrieves and displays the latest 100 posted Memes (names + meme images + caption).
+
+> XMeme is a Meme Stream Page where users can post memes by providing their name, a caption for the meme \
+and the URL for the meme image as input. The page retrieves and displays the latest 100 posted Memes (names + \
+meme images + caption).
 
 ## Installation
 Install the dependencies and devDependencies and start the server.
@@ -49,13 +53,14 @@ Now you can access you application at http://server-address:8081/
 ### Todos
 
  - Add auth
+ - Add feature to like, comment and share
  - Add edit button in the frontend for update api in the backend
  - Write Tests for frontend
 
 License
 ----
 
-**[Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)**
+**[ISC](https://opensource.org/licenses/ISC)**
 
 Author
 ---
