@@ -124,6 +124,7 @@
         "tags": [
           "memes"
         ],
+        "summary": "Update meme info",
         "description": "Updates url and caption of a meme",
         "produces": [
           "application/json"
@@ -135,14 +136,20 @@
             "description": "id of meme you want to update",
             "required": true,
             "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "meme",
+            "description": "meme to info to update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/updateMeme"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object"
-            }
+            "description": "OK"
           },
           "405": {
             "description": "Method not allowed if trying to update the name"
@@ -196,6 +203,18 @@
         }
       },
       "description": "Response object for id specific get request."
+    },
+    "updateMeme": {
+      "type": "object",
+      "properties": {
+        "caption": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "description": "Object to update meme"
     }
   }
 }
