@@ -47,7 +47,7 @@ exports.updateById = async (req, res) => {
     const meme = await Meme.findByIdAndUpdate(req.params.id, req.body, {
       new: true
     });
-    return res.status(200).send(meme.transform());
+    return res.sendStatus(200);
   } catch (error) {
     res.status(500).send(error.message);
   }
