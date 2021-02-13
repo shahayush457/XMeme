@@ -26,7 +26,7 @@ $ npm run serve
 ```
 Now you can access the site locally at http://localhost:8082/
 #### Building for source
-Frontend Build for production (Will build into backend/view, ready for deployment)
+Frontend Build for production (will build into backend/view, ready for deployment)
 ```sh
 $ cd shahayush457-me_buildout_xmeme/frontend
 $ npm run build
@@ -46,7 +46,9 @@ Once done, run the Docker image and map the port to whatever you wish on your ho
 Now just push the xmeme docker image to docker hub and pull it in your server to run the container.
 
 ```sh
-$ docker run -d -p 8081:8081 -p 8080:8080 -p 27017:27017 --name xmeme xmeme
+$ docker run -d -p 8081:8081 -p 8080:8080 -p 27017:27017 --name xmeme_app xmeme
+# or run container in host networking mode (the container shares the host’s networking namespace)
+$ docker run -d --net="host" --name xmeme_app xmeme
 ```
 Now you can access you application at http://server-address:8081/
 

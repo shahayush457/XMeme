@@ -92,6 +92,7 @@
         "tags": [
           "memes"
         ],
+        "summary": "Get meme by id",
         "description": "Get memes by id",
         "produces": [
           "application/json"
@@ -140,7 +141,7 @@
           {
             "in": "body",
             "name": "meme",
-            "description": "meme to info to update",
+            "description": "meme info to update",
             "required": true,
             "schema": {
               "$ref": "#/definitions/updateMeme"
