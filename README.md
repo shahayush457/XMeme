@@ -1,7 +1,7 @@
 # XMeme :wave:	
-**The application is live here - [XMeme](https://xmeme.coolayush.ninja)** 
+**The application is live here - [XMeme](https://xmeme-ayush.herokuapp.com/)** 
 
-**The documentation for backend apis can be accessed here - [Docs](https://xmeme.coolayush.ninja/swagger-ui)**
+**The documentation for backend apis can be accessed here - [Docs](https://xmeme-ayush.herokuapp.com/swagger-ui)**
 
 > XMeme is a Meme Stream Page where users can post memes by providing their name, a caption for the meme \
 and the URL for the meme image as input. The page retrieves and displays the latest 100 posted Memes (names +

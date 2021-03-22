@@ -12,7 +12,7 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "host": "xmeme.coolayush.ninja",
+  "host": "xmeme-ayush.herokuapp.com/",
   "basePath": "/swagger-ui",
   "schemes": [
     "https"

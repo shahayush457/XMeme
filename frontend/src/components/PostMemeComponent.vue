@@ -9,7 +9,7 @@
         >@ayushshah</button>
         <button
           class="swagger"
-          onclick="window.open('https://www.xmeme.coolayush.ninja/swagger-ui/')"
+          onclick="window.open('https://xmeme-ayush.herokuapp.com/swagger-ui/')"
         >Swagger</button>
       </div>
     </div>
